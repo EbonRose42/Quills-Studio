@@ -5,9 +5,9 @@ dist-electron/
 coverage/
 playwright-report/
 test-results/
-projects/
-series/
-release/
-logs/
-.quills-studio/
+/projects/
+/series/
+/release/
+/logs/
+/.quills-studio/
 *.log
