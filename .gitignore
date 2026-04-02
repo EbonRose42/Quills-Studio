@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-electron/
+.vite/
+coverage/
+playwright-report/
+test-results/
+projects/
+series/
+release/
+logs/
+.quills-studio/
+*.log

@@ -1,0 +1,77 @@
+{
+  "name": "quills-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Artifact-driven local writing studio for novels and series.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EbonRose42/Quills-Studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EbonRose42/Quills-Studio/issues"
+  },
+  "homepage": "https://github.com/EbonRose42/Quills-Studio#readme",
+  "type": "module",
+  "main": "apps/desktop/dist-electron/main.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @quills/desktop",
+    "build": "npm run build --workspace @quills/desktop",
+    "mcp:project-library": "tsx packages/mcp/src/sdk/project-library-server.ts",
+    "mcp:continuity": "tsx packages/mcp/src/sdk/continuity-server.ts",
+    "mcp:planning": "tsx packages/mcp/src/sdk/planning-server.ts",
+    "package:dir": "npm run build && electron-builder --dir",
+    "package:win": "npm run build && electron-builder --win nsis portable",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "verify": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "electron": "^37.2.4",
+    "electron-builder": "^26.0.12",
+    "jsdom": "^26.1.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5",
+    "vite-plugin-electron": "^0.29.0",
+    "vitest": "^4.1.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "diff": "^8.0.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^3.25.76"
+  },
+  "build": {
+    "appId": "com.jane.quillsstudio",
+    "productName": "Quills Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "apps/desktop/dist/**/*",
+      "apps/desktop/dist-electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
