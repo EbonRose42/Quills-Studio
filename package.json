@@ -25,6 +25,7 @@
     "mcp:planning": "tsx packages/mcp/src/sdk/planning-server.ts",
     "package:dir": "npm run build && electron-builder --dir",
     "package:win": "npm run build && electron-builder --win nsis portable",
+    "package:linux": "npm run build && electron-builder --linux AppImage tar.gz",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "verify": "npm run typecheck && npm run test && npm run build"
@@ -67,6 +68,13 @@
       "target": [
         "nsis",
         "portable"
+      ]
+    },
+    "linux": {
+      "category": "Office",
+      "target": [
+        "AppImage",
+        "tar.gz"
       ]
     },
     "nsis": {

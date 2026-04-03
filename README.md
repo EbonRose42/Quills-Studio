@@ -71,6 +71,12 @@ Build Windows installer artifacts:
 npm run package:win
 ```
 
+Build Linux desktop artifacts:
+
+```bash
+npm run package:linux
+```
+
 ## Ollama notes
 
 Quills Studio expects these Ollama models by default:
@@ -108,6 +114,29 @@ This includes:
 - selected runtime provider mode
 - provider settings such as host, model, api key, timeout, retries, fallback policy, and thinking toggle
 - verbose logging preference
+
+## Linux support
+
+Quills Studio uses one shared codebase for Windows and Linux.
+
+Current Linux readiness:
+
+- Linux packaging targets are configured through Electron Builder
+- GitHub Actions verifies the repo on both Windows and Ubuntu
+- GitHub Actions also builds Linux packaging artifacts
+
+Expected Linux test flow:
+
+```bash
+npm install
+npm run verify
+npm run package:linux
+```
+
+Current Linux packaging targets:
+
+- `AppImage`
+- `tar.gz`
 
 ## GitHub readiness
 
