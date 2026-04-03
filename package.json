@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "description": "Artifact-driven local writing studio for novels and series.",
+  "license": "MIT",
+  "author": {
+    "name": "EbonRose42",
+    "email": "rochelle@crackedeggproductions.net"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/EbonRose42/Quills-Studio.git"
